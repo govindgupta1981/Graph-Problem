@@ -1,4 +1,4 @@
-package com.testproject.GraphProblem.GraphProblem;
+package com.testproject.GraphProblem;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

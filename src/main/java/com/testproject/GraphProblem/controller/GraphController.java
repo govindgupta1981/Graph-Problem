@@ -21,6 +21,7 @@ import com.testproject.GraphProblem.exception.GraphHandlingException;
 import com.testproject.GraphProblem.model.GraphData;
 import com.testproject.GraphProblem.model.GraphResponse;
 import com.testproject.GraphProblem.service.GraphService;
+import com.testproject.GraphProblem.utility.Graph;
 
 /**
  * @author GOVIND
@@ -48,8 +49,11 @@ public class GraphController {
 		try {
 			// Service Layer Call for Creating the Graph
 			graphService.constructGraph(graphData);
+			Graph graph = new Graph();
+			logger.info("Created Graph :: \n" + graph);
 			graphResponse.setStatus(GraphConstants.SUCCESS);
 			graphResponse.setMessage(MessageConfig.GRAPH_CREATED);
+			graphResponse.setGraph(graph);
 		} catch (GraphHandlingException ge) {
 			logger.error("Error while creating Graph : ", ge);
 			graphResponse.setStatus(GraphConstants.FAILURE);

@@ -64,9 +64,10 @@ class GraphProblemApplicationTests {
 		// Verify request succeed
 		assertEquals(201, result.getStatusCodeValue());
 		System.out.println(result.getBody().getMessage());
+		System.out.println(result.getBody().getGraph());
 	}
 
-	@Test
+	//@Test
 	public void getMarketValue() throws Exception {
 		GraphResponse response = restTemplate
 				.getForObject(new URI("http://localhost:" + 8083 + "/graph/marketvalue/F1"), GraphResponse.class);
@@ -75,7 +76,7 @@ class GraphProblemApplicationTests {
 		System.out.println(response.getMessage());
 	}
 
-	@Test
+	//@Test
 	public void getMarketValueWithExclusions() throws Exception {
 		final String baseUrl = "http://localhost:" + 8083 + "/graph/marketvalue/F1";
 		URI uri = new URI(baseUrl);

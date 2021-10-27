@@ -1,6 +1,6 @@
 package com.testproject.GraphProblem.utility;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +12,7 @@ import java.util.Map;
 public class Graph {
 
 	// HashMap to store the edges in the graph
-	public static Map<String, List<String>> map = new HashMap<>();
+	public static Map<String, List<String>> map = new LinkedHashMap<>();
 
 	// Default Constructor
 	public Graph() {
@@ -33,14 +33,16 @@ public class Graph {
 		map.get(level + "-" + source).add(destination);
 	}
 
-	// Prints the adjancency list of each vertex.
+	// Prints the adjacency list of each vertex.
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		for (String v : map.keySet()) {
-			builder.append(v.toString() + ": ");
+			String[] keyArr = v.split("-");
+			builder.append("Level- " + keyArr[0] + " ," + "Parent Node- " + keyArr[1] + ", ");
+			builder.append("Child Nodes- ");
 			for (String w : map.get(v)) {
-				builder.append(w.toString() + " ");
+				builder.append(w + " ");
 			}
 			builder.append("\n");
 		}

@@ -2,6 +2,7 @@ package com.testproject.GraphProblem.service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ public class GraphServiceImpl implements GraphService {
 	public void constructGraph(GraphData graphData) throws GraphHandlingException {
 		try {
 			// Making static Graph Map reference to Empty
-			Graph.map = new HashMap<>();
+			Graph.map = new LinkedHashMap<>();
 			// Get Node Data
 			List<Node> nodes = graphData.getNodes();
 			// Null & Empty Check for Nodes
@@ -179,7 +180,7 @@ public class GraphServiceImpl implements GraphService {
 		} else {
 			throw new GraphHandlingException(MessageConfig.INVESTOR_FUND_ID_NOT_FOUND);
 		}
-		logger.debug("Calculated Market Value for Id : " + id + " is :: ", marketValue);
+		logger.info("Calculated Market Value for Id : " + id + " is :: ", marketValue);
 		// Return
 		return marketValue;
 	}

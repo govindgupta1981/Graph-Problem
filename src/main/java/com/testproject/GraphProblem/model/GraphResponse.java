@@ -1,5 +1,7 @@
 package com.testproject.GraphProblem.model;
 
+import com.testproject.GraphProblem.utility.Graph;
+
 /**
  * @author GOVIND
  *
@@ -8,6 +10,7 @@ public class GraphResponse {
 
 	private Integer status;
 	private String message;
+	public Graph graph;
 
 	/**
 	 * @return the status
@@ -35,5 +38,19 @@ public class GraphResponse {
 	 */
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+	/**
+	 * @return the graph
+	 */
+	public Graph getGraph() {
+		return graph;
+	}
+
+	/**
+	 * @param graph the graph to set
+	 */
+	public void setGraph(Graph graph) {
+		this.graph = graph;
 	}
 }
